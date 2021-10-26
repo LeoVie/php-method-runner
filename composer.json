@@ -5,12 +5,12 @@
     "type": "symfony-bundle",
     "autoload": {
         "psr-4": {
-            "LeoVie\\PhpParamGenerator\\": "src/"
+            "LeoVie\\PhpMethodRunner\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "LeoVie\\PhpParamGenerator\\Tests\\": "tests/"
+            "LeoVie\\PhpMethodRunner\\Tests\\": "tests/"
         }
     },
     "authors": [
