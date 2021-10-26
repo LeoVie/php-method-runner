@@ -1,0 +1,12 @@
+parameters:
+# nothing to declare
+
+services:
+  _defaults:
+    autowire: true
+
+  LeoVie\PhpMethodRunner\:
+    resource: '../src/'
+    exclude:
+      - '../src/DependencyInjection/'
+      - '../src/PhpMethodRunnerBundle.php'
