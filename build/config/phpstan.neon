@@ -13,4 +13,4 @@ parameters:
             - %currentWorkingDirectory%/src/DependencyInjection/*
     ignoreErrors:
 #        - '#Method LeoVie\\PhpMethodRunner\\Tests.+ has parameter .+ with no value type specified in iterable type .+#'
-#        - '#Method LeoVie\\PhpMethodRunner\\Tests.+ return type has no value type specified in iterable type .+#'
+        - '#Method LeoVie\\PhpMethodRunner\\Tests.+ return type has no value type specified in iterable type .+#'

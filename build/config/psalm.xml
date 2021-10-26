@@ -12,11 +12,4 @@
             <directory name="../../vendor" />
         </ignoreFiles>
     </projectFiles>
-    <issueHandlers>
-        <MoreSpecificImplementedParamType>
-            <errorLevel type="suppress">
-                <directory name="../../src/Model/Param" />
-            </errorLevel>
-        </MoreSpecificImplementedParamType>
-    </issueHandlers>
 </psalm>
