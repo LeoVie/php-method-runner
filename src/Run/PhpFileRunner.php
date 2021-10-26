@@ -15,7 +15,7 @@ class PhpFileRunner
      */
     public function runPhpFile(string $filepath): string
     {
-        $command = 'php -f ' . \Safe\realpath($filepath);
+        $command = 'php -f ' . escapeshellarg(\Safe\realpath($filepath));
 
         $result = shell_exec($command);
 

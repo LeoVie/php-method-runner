@@ -32,10 +32,8 @@ composer.lock
 /public/bundles/
 /var/
 
-template/
-!template/.gitkeep
+template/generated/
 !template/generated/.gitkeep
 
-tests/template/
-!tests/template/.gitkeep
+tests/template/generated/
 !tests/template/generated/.gitkeep

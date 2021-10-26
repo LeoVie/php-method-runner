@@ -12,7 +12,12 @@
     "text": "build/logs/infection.log"
   },
   "mutators": {
-    "@default": true
+    "@default": true,
+    "UnwrapRtrim": {
+      "ignore": [
+        "LeoVie\\PhpMethodRunner\\Configuration\\Configuration::create"
+      ]
+    }
   },
   "tmpDir": "../cache"
 }

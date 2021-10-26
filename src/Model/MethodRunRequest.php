@@ -6,6 +6,7 @@ namespace LeoVie\PhpMethodRunner\Model;
 
 class MethodRunRequest
 {
+    /** @param mixed[] $params */
     private function __construct(
         private Method $method,
         private array  $params,
@@ -13,6 +14,7 @@ class MethodRunRequest
     {
     }
 
+    /** @param mixed[] $params */
     public static function create(Method $method, array $params): self
     {
         return new self($method, $params);
@@ -23,6 +25,7 @@ class MethodRunRequest
         return $this->method;
     }
 
+    /** @return mixed[] */
     public function getParams(): array
     {
         return $this->params;
