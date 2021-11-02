@@ -22,7 +22,7 @@ class PhpFileGenerator
             [
                 $request->getMethod()->getName(),
                 $request->getMethod()->getContent(),
-                join(',', $request->getParams()),
+                serialize($request->getParams()),
             ],
         );
     }
