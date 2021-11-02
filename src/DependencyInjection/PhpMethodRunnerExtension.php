@@ -8,7 +8,6 @@ use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
-use Symfony\Component\Routing\Loader\XmlFileLoader;
 
 class PhpMethodRunnerExtension extends Extension
 {
@@ -18,10 +17,10 @@ class PhpMethodRunnerExtension extends Extension
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $configFile = new FileLocator(__DIR__ . '/../../config/');
+        $configDir = new FileLocator(__DIR__ . '/../../config/');
 
-        $loader = new XmlFileLoader($configFile);
-        $loader->load('services.xml');
+        $loader = new YamlFileLoader($container, $configDir);
+        $loader->load('services.yaml');
 
         $config = $this->processConfiguration(new Configuration(), $configs);
 

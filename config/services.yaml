@@ -11,9 +11,12 @@ services:
       - '../src/DependencyInjection/'
       - '../src/PhpMethodRunnerBundle.php'
 
-  LeoVie\PhpMethodRunner\Configuration\Configuration: ~
+  LeoVie\PhpMethodRunner\Configuration\Configuration:
+    arguments:
+      - ~
+      - ~
 
-leovie_php_method_runner:
-  directories:
-    template_directory: ../template/
-    generated_directory: ../generated/
+#leovie_php_method_runner:
+#  directories:
+#    template_directory: ../template/
+#    generated_directory: ../generated/
