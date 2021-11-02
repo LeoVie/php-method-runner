@@ -15,14 +15,6 @@ class Configuration
         $this->generatedDirectory = \Safe\realpath(rtrim($generatedDirectory, '/'));
     }
 
-//    public static function create(string $generatedDirectory, string $templateDirectory = __DIR__ . '/../../template'): self
-//    {
-//        return new self(
-//            \Safe\realpath(rtrim($generatedDirectory, '/')),
-//            \Safe\realpath(rtrim($templateDirectory, '/'))
-//        );
-//    }
-
     public function getTemplateDirectory(): string
     {
         return $this->templateDirectory;
