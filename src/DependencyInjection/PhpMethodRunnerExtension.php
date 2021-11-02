@@ -25,7 +25,7 @@ class PhpMethodRunnerExtension extends Extension
         $config = $this->processConfiguration(new Configuration(), $configs);
 
         $definition = $container->getDefinition(\LeoVie\PhpMethodRunner\Configuration\Configuration::class);
-        $definition->setArgument(0, $config['directories']['template_directory']);
-        $definition->setArgument(1, $config['directories']['generated_directory']);
+        $definition->replaceArgument(0, $config['directories']['template_directory']);
+        $definition->replaceArgument(1, $config['directories']['generated_directory']);
     }
 }
