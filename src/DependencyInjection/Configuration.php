@@ -11,7 +11,7 @@ class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('php_method_runner');
+        $treeBuilder = new TreeBuilder('leovie_php_method_runner');
 
         $treeBuilder->getRootNode()
             ->children()
