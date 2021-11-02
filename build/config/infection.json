@@ -17,6 +17,16 @@
       "ignore": [
         "LeoVie\\PhpMethodRunner\\Configuration\\Configuration::create"
       ]
+    },
+    "ConcatOperandRemoval": {
+      "ignore": [
+        "LeoVie\\PhpMethodRunner\\Configuration\\Configuration::create"
+      ]
+    },
+    "Concat": {
+      "ignore": [
+        "LeoVie\\PhpMethodRunner\\Configuration\\Configuration::create"
+      ]
     }
   },
   "tmpDir": "../cache"

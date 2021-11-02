@@ -19,12 +19,16 @@ class ConfigurationTest extends TestCase
     {
         return [
             [
-                '/var/www/foo',
-                Configuration::create('/var/www/foo/', ''),
+                realpath('.'),
+                Configuration::create('.', '.'),
             ],
             [
-                '/var/www/foo',
-                Configuration::create('/var/www/foo', ''),
+                realpath('.'),
+                Configuration::create('.', './'),
+            ],
+            [
+                realpath(__DIR__ . '/../../../template'),
+                Configuration::create('.'),
             ],
         ];
     }
@@ -39,12 +43,12 @@ class ConfigurationTest extends TestCase
     {
         return [
             [
-                '/var/www/foo',
-                Configuration::create('', '/var/www/foo/'),
+                realpath('.'),
+                Configuration::create('.'),
             ],
             [
-                '/var/www/foo',
-                Configuration::create('', '/var/www/foo'),
+                realpath('.'),
+                Configuration::create('./'),
             ],
         ];
     }

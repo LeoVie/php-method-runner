@@ -6,12 +6,16 @@ namespace LeoVie\PhpMethodRunner\Configuration;
 
 class Configuration
 {
-    private function __construct(private string $templateDirectory, private string $generatedDirectory)
-    {}
-
-    public static function create(string $templateDirectory, string $generatedDirectory): self
+    private function __construct(private string $generatedDirectory, private string $templateDirectory)
     {
-        return new self(rtrim($templateDirectory, '/'), rtrim($generatedDirectory, '/'));
+    }
+
+    public static function create(string $generatedDirectory, string $templateDirectory = __DIR__ . '/../../template'): self
+    {
+        return new self(
+            \Safe\realpath(rtrim($generatedDirectory, '/')),
+            \Safe\realpath(rtrim($templateDirectory, '/'))
+        );
     }
 
     public function getTemplateDirectory(): string
