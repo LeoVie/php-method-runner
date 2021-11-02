@@ -9,10 +9,10 @@ class Configuration
     private string $generatedDirectory;
     private string $templateDirectory;
 
-    public function __construct(string $generatedDirectory, string $templateDirectory)
+    public function __construct(string $templateDirectory, string $generatedDirectory)
     {
-        $this->generatedDirectory = \Safe\realpath(rtrim($generatedDirectory, '/'));
         $this->templateDirectory = \Safe\realpath(rtrim($templateDirectory, '/'));
+        $this->generatedDirectory = \Safe\realpath(rtrim($generatedDirectory, '/'));
     }
 
 //    public static function create(string $generatedDirectory, string $templateDirectory = __DIR__ . '/../../template'): self
