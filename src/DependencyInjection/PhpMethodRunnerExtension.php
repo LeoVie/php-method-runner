@@ -21,5 +21,11 @@ class PhpMethodRunnerExtension extends Extension
 
         $loader = new YamlFileLoader($container, $configDir);
         $loader->load('services.yaml');
+
+        $config = $this->processConfiguration(new Configuration(), $configs);
+
+        $definition = $container->getDefinition(\LeoVie\PhpMethodRunner\Configuration\Configuration::class);
+        $definition->setArgument(0, $config['directories']['template_directory']);
+        $definition->setArgument(1, $config['directories']['generated_directory']);
     }
 }

@@ -11,13 +11,17 @@ use LeoVie\PhpMethodRunner\Model\MethodRunRequest;
 
 class MethodRunner
 {
-    public function __construct(private PhpFileGenerator $phpFileGenerator, private PhpFileRunner $phpFileRunner)
+    public function __construct(
+        private PhpFileGenerator $phpFileGenerator,
+        private PhpFileRunner    $phpFileRunner,
+        private Configuration    $configuration
+    )
     {
     }
 
-    public function run(MethodRunRequest $methodRunRequest, Configuration $configuration): MethodResult
+    public function run(MethodRunRequest $methodRunRequest): MethodResult
     {
-        $filepath = $this->phpFileGenerator->methodFile($methodRunRequest, $configuration);
+        $filepath = $this->phpFileGenerator->methodFile($methodRunRequest, $this->configuration);
 
         return MethodResult::create(unserialize($this->phpFileRunner->runPhpFile($filepath)));
     }
