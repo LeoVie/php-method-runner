@@ -14,3 +14,4 @@ parameters:
     ignoreErrors:
         - '#Method LeoVie\\PhpMethodRunner\\Tests.+ has parameter .+ with no value type specified in iterable type .+#'
         - '#Method LeoVie\\PhpMethodRunner\\Tests.+ return type has no value type specified in iterable type .+#'
+        - '#Call to an undefined method Symfony\\Component\\Config\\Definition\\Builder\\NodeDefinition::children\(\)\.#'

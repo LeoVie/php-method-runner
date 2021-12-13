@@ -22,7 +22,7 @@ class PhpFileGeneratorTest extends TestCase
 
     public function methodFileProvider(): \Generator
     {
-        $configuration = Configuration::create(__DIR__ . '/../../template/generated', __DIR__ . '/../../template');
+        $configuration = new Configuration(__DIR__ . '/../../template', __DIR__ . '/../../template/generated');
         yield [
             'expected' => 'foo:a:2:{i:0;s:3:"bar";i:1;s:3:"bla";}:this is the function',
             MethodRunRequest::create(
@@ -32,7 +32,6 @@ class PhpFileGeneratorTest extends TestCase
             'configuration' => $configuration,
         ];
 
-        $configuration = Configuration::create(__DIR__ . '/../../template/generated', __DIR__ . '/../../template');
         yield [
             'expected' => 'otherFunction:a:2:{i:0;s:5:"other";i:1;s:6:"params";}:other function content',
             MethodRunRequest::create(

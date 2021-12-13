@@ -20,15 +20,11 @@ class ConfigurationTest extends TestCase
         return [
             [
                 realpath('.'),
-                Configuration::create('.', '.'),
+                new Configuration('.', '.'),
             ],
             [
                 realpath('.'),
-                Configuration::create('.', './'),
-            ],
-            [
-                realpath(__DIR__ . '/../../../template'),
-                Configuration::create('.'),
+                new Configuration('.', './'),
             ],
         ];
     }
@@ -44,11 +40,7 @@ class ConfigurationTest extends TestCase
         return [
             [
                 realpath('.'),
-                Configuration::create('.'),
-            ],
-            [
-                realpath('.'),
-                Configuration::create('./'),
+                new Configuration('.', '.'),
             ],
         ];
     }

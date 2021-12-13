@@ -26,9 +26,8 @@ class MethodRunnerTest extends TestCase
 
         self::assertEquals(
             $expected,
-            (new MethodRunner($phpFileGenerator, $phpFileRunner))->run(
+            (new MethodRunner($phpFileGenerator, $phpFileRunner, new Configuration('', '')))->run(
                 MethodRunRequest::create(Method::create('', ''), []),
-                Configuration::create('', '')
             ));
     }
 
