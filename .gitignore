@@ -35,4 +35,5 @@ composer.lock
 template/generated/
 !template/generated/.gitkeep
 
+tests/template/generated/
 !tests/template/generated/.gitkeep
