@@ -15,7 +15,10 @@ class PhpFileRunner
      */
     public function runPhpFile(string $filepath): string
     {
-        $command = 'php -f ' . escapeshellarg(\Safe\realpath($filepath));
+        $command = 'php '
+            . '-d error_reporting="E_ALL & ~E_ERROR & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_USER_NOTICE" '
+            . '-d display_errors=Off '
+            . '-f ' . escapeshellarg(\Safe\realpath($filepath));
 
         $result = shell_exec($command);
 
