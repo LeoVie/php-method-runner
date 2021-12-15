@@ -5,6 +5,9 @@ declare(strict_types=1);
 $functionName = '#FUNCTION_NAME#';
 $params = '#PARAMS#';
 
-#FUNCTION_CONTENT#
+class Context
+{
+static #FUNCTION_CONTENT#
+}
 
-print(serialize($functionName(...unserialize($params))));
+print(serialize(Context::$functionName(...unserialize($params))));
