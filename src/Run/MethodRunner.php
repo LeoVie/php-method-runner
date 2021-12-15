@@ -5,9 +5,11 @@ declare(strict_types=1);
 namespace LeoVie\PhpMethodRunner\Run;
 
 use LeoVie\PhpMethodRunner\Configuration\Configuration;
+use LeoVie\PhpMethodRunner\Exception\CommandFailed;
 use LeoVie\PhpMethodRunner\Generator\PhpFileGenerator;
 use LeoVie\PhpMethodRunner\Model\MethodResult;
 use LeoVie\PhpMethodRunner\Model\MethodRunRequest;
+use Safe\Exceptions\FilesystemException;
 
 class MethodRunner
 {
@@ -19,6 +21,10 @@ class MethodRunner
     {
     }
 
+    /**
+     * @throws FilesystemException
+     * @throws CommandFailed
+     */
     public function run(MethodRunRequest $methodRunRequest): MethodResult
     {
         $filepath = $this->phpFileGenerator->methodFile($methodRunRequest, $this->configuration);
