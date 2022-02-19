@@ -6,12 +6,14 @@ namespace LeoVie\PhpMethodRunner\Run;
 
 use LeoVie\PhpMethodRunner\Exception\CommandFailed;
 use Safe\Exceptions\FilesystemException;
+use Safe\Exceptions\StringsException;
 
 class PhpFileRunner
 {
     /**
      * @throws FilesystemException
      * @throws CommandFailed
+     * @throws StringsException
      */
     public function runPhpFile(string $filepath): string
     {

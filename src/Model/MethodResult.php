@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace LeoVie\PhpMethodRunner\Model;
 
+/** @psalm-immutable */
 class MethodResult
 {
     private function __construct(private mixed $result)
