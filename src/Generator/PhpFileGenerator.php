@@ -10,9 +10,7 @@ use Safe\Exceptions\FilesystemException;
 
 class PhpFileGenerator
 {
-    /**
-     * @throws FilesystemException
-     */
+    /** @throws FilesystemException */
     public function methodFile(MethodRunRequest $request, Configuration $configuration): string
     {
         return $this->buildPhpFile(

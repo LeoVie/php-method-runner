@@ -11,8 +11,8 @@ class Configuration
 
     public function __construct(string $templateDirectory, string $generatedDirectory)
     {
-        $this->templateDirectory = \Safe\realpath(rtrim($templateDirectory, '/'));
-        $this->generatedDirectory = \Safe\realpath(rtrim($generatedDirectory, '/'));
+        $this->templateDirectory = \Safe\realpath($templateDirectory);
+        $this->generatedDirectory = \Safe\realpath($generatedDirectory);
     }
 
     public function getTemplateDirectory(): string

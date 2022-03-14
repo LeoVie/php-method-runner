@@ -24,7 +24,7 @@ class ConfigurationTest extends TestCase
             ],
             [
                 realpath('.'),
-                new Configuration('.', './'),
+                new Configuration('./', './'),
             ],
         ];
     }
@@ -41,6 +41,10 @@ class ConfigurationTest extends TestCase
             [
                 realpath('.'),
                 new Configuration('.', '.'),
+            ],
+            [
+                realpath('.'),
+                new Configuration('.', './'),
             ],
         ];
     }

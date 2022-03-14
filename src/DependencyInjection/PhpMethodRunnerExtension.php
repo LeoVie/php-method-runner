@@ -11,17 +11,20 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 class PhpMethodRunnerExtension extends Extension
 {
+    private const CONFIG_DIR = __DIR__ . '/../../config/';
+
     /**
      * @param mixed[] $configs
      * @throws \Exception
      */
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $configDir = new FileLocator(__DIR__ . '/../../config/');
+        $configDir = new FileLocator(self::CONFIG_DIR);
 
         $loader = new YamlFileLoader($container, $configDir);
         $loader->load('services.yaml');
 
+        /** @var array{directories: array{template_directory: string, generated_directory: string}} */
         $config = $this->processConfiguration(new Configuration(), $configs);
 
         $definition = $container->getDefinition(\LeoVie\PhpMethodRunner\Configuration\Configuration::class);
