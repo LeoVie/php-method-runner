@@ -17,7 +17,7 @@ class PhpFileRunner
      */
     public function runPhpFile(string $filepath): string
     {
-        $command = \Safe\sprintf(
+        $command = sprintf(
             'php -d %s -d %s -f %s',
             'error_reporting="E_ALL & ~E_ERROR & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED & ~E_USER_DEPRECATED & ~E_USER_NOTICE"',
             'display_errors=Off',
