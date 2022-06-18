@@ -64,7 +64,7 @@ class MethodRunnerTest extends TestCase
                     ),
                     [100, 250],
                     ClassData::create(
-                        '\\Foo\\FancyTestData\\Service\\MultiplierService'
+                        '\\Foo\\FancyTestData\\PublicService\\MultiplierService'
                     ),
                     [10],
                     __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
@@ -79,7 +79,7 @@ class MethodRunnerTest extends TestCase
                     ),
                     [100, 250],
                     ClassData::create(
-                        '\\Foo\\FancyTestData\\Service\\AdderService'
+                        '\\Foo\\FancyTestData\\PublicService\\AdderService'
                     ),
                     [],
                     __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
@@ -94,7 +94,7 @@ class MethodRunnerTest extends TestCase
                     ),
                     [],
                     ClassData::create(
-                        '\\Foo\\FancyTestData\\Service\\SubtractorService'
+                        '\\Foo\\FancyTestData\\PublicService\\SubtractorService'
                     ),
                     [250, 100],
                     __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
@@ -109,7 +109,7 @@ class MethodRunnerTest extends TestCase
                     ),
                     [],
                     ClassData::create(
-                        '\\Foo\\FancyTestData\\Service\\ConstantService'
+                        '\\Foo\\FancyTestData\\PublicService\\ConstantService'
                     ),
                     [],
                     __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
