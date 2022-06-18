@@ -4,37 +4,38 @@ declare(strict_types=1);
 
 namespace LeoVie\PhpMethodRunner\Tests\Unit\Model;
 
-use LeoVie\PhpMethodRunner\Model\Method;
+use LeoVie\PhpMethodRunner\Model\MethodData;
 use LeoVie\PhpMethodRunner\Model\MethodRunRequest;
+use LeoVie\PhpMethodRunner\Model\MethodRunRequestWithoutAutoloading;
 use PHPUnit\Framework\TestCase;
 
 class MethodRunRequestTest extends TestCase
 {
     /** @dataProvider getMethodProvider */
-    public function testGetMethod(Method $expected, MethodRunRequest $methodRunRequest): void
+    public function testGetMethod(MethodData $expected, MethodRunRequest $methodRunRequest): void
     {
         self::assertSame($expected, $methodRunRequest->getMethod());
     }
 
     public function getMethodProvider(): \Generator
     {
-        $method = Method::create('', '');
+        $method = MethodData::create('', '');
         yield [
             'expected' => $method,
-            MethodRunRequest::create($method, []),
+            MethodRunRequestWithoutAutoloading::create($method, []),
         ];
 
-        $method = Method::create('foo', '');
+        $method = MethodData::create('foo', '');
         yield [
             'expected' => $method,
-            MethodRunRequest::create($method, []),
+            MethodRunRequestWithoutAutoloading::create($method, []),
         ];
     }
 
     /** @dataProvider getParamsProvider */
     public function testGetParams(array $expected, MethodRunRequest $methodRunRequest): void
     {
-        self::assertSame($expected, $methodRunRequest->getParams());
+        self::assertSame($expected, $methodRunRequest->getMethodParams());
     }
 
     public function getParamsProvider(): \Generator
@@ -42,13 +43,13 @@ class MethodRunRequestTest extends TestCase
         $params = ['abc', 123];
         yield [
             'expected' => $params,
-            MethodRunRequest::create(Method::create('', ''), $params),
+            MethodRunRequestWithoutAutoloading::create(MethodData::create('', ''), $params),
         ];
 
         $params = ['abc', 'def', 'ghi'];;
         yield [
             'expected' => $params,
-            MethodRunRequest::create(Method::create('', ''), $params),
+            MethodRunRequestWithoutAutoloading::create(MethodData::create('', ''), $params),
         ];
     }
 }

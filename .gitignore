@@ -1,9 +1,9 @@
 #
 # Composer
 #
-vendor
+/vendor
 bin
-composer.lock
+/composer.lock
 
 #
 # PHPStorm

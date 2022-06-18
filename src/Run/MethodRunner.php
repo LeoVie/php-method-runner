@@ -9,6 +9,7 @@ use LeoVie\PhpMethodRunner\Exception\CommandFailed;
 use LeoVie\PhpMethodRunner\Generator\PhpFileGenerator;
 use LeoVie\PhpMethodRunner\Model\MethodResult;
 use LeoVie\PhpMethodRunner\Model\MethodRunRequest;
+use LeoVie\PhpMethodRunner\Model\MethodRunRequestWithoutAutoloading;
 use Safe\Exceptions\FilesystemException;
 
 class MethodRunner
