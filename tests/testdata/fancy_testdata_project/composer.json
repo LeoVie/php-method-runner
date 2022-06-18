@@ -1,0 +1,9 @@
+{
+    "name": "foo/fancy-test-data",
+    "autoload": {
+        "psr-4": {
+            "Foo\\FancyTestData\\": "src/"
+        }
+    },
+    "require": {}
+}

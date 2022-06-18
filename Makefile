@@ -5,7 +5,10 @@ phpstan:
 	docker run -v ${PWD}:/app --rm php-method-runner/phpstan:latest analyse -c /app/build/config/phpstan.neon
 
 unit:
-	composer phpunit
+	composer phpunit -- --testsuite=Unit
+
+functional:
+	composer phpunit -- --testsuite=Functional
 
 test: phpstan
 	composer testall
