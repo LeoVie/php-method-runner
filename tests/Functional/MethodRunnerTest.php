@@ -148,6 +148,21 @@ class MethodRunnerTest extends TestCase
                 ),
                 MethodResult::create(250000),
             ],
+            'with autoloading (static)' => [
+                MethodRunRequestWithAutoloading::create(
+                    MethodData::create(
+                        'multiply',
+                        ''
+                    ),
+                    [100, 250],
+                    ClassData::create(
+                        \Foo\FancyTestData\StaticService\MultiplierService::class,
+                    ),
+                    [],
+                    __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
+                ),
+                MethodResult::create(25000),
+            ],
         ];
     }
 }
