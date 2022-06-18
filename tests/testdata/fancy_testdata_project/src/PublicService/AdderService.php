@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Foo\FancyTestData\Service;
+namespace Foo\FancyTestData\PublicService;
 
 class AdderService
 {
