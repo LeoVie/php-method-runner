@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace LeoVie\PhpMethodRunner\Tests\Functional;
 
+require_once __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php';
+
 use LeoVie\PhpMethodRunner\Configuration\Configuration;
 use LeoVie\PhpMethodRunner\Generator\PhpFileGenerator;
 use LeoVie\PhpMethodRunner\Model\ClassData;
@@ -56,7 +58,7 @@ class MethodRunnerTest extends TestCase
                 ),
                 MethodResult::create(25000)
             ],
-            'with autoloading, with class params, with method params' => [
+            'with autoloading (public), with class params, with method params' => [
                 MethodRunRequestWithAutoloading::create(
                     MethodData::create(
                         'multiply',
@@ -64,14 +66,14 @@ class MethodRunnerTest extends TestCase
                     ),
                     [100, 250],
                     ClassData::create(
-                        '\\Foo\\FancyTestData\\PublicService\\MultiplierService'
+                        \Foo\FancyTestData\PublicService\MultiplierService::class,
                     ),
                     [10],
                     __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
                 ),
                 MethodResult::create(250000),
             ],
-            'with autoloading, without class params, with method params' => [
+            'with autoloading (public), without class params, with method params' => [
                 MethodRunRequestWithAutoloading::create(
                     MethodData::create(
                         'add',
@@ -79,14 +81,14 @@ class MethodRunnerTest extends TestCase
                     ),
                     [100, 250],
                     ClassData::create(
-                        '\\Foo\\FancyTestData\\PublicService\\AdderService'
+                        \Foo\FancyTestData\PublicService\AdderService::class,
                     ),
                     [],
                     __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
                 ),
                 MethodResult::create(350),
             ],
-            'with autoloading, with class params, without method params' => [
+            'with autoloading (public), with class params, without method params' => [
                 MethodRunRequestWithAutoloading::create(
                     MethodData::create(
                         'subtract',
@@ -94,14 +96,14 @@ class MethodRunnerTest extends TestCase
                     ),
                     [],
                     ClassData::create(
-                        '\\Foo\\FancyTestData\\PublicService\\SubtractorService'
+                        \Foo\FancyTestData\PublicService\SubtractorService::class,
                     ),
                     [250, 100],
                     __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
                 ),
                 MethodResult::create(150),
             ],
-            'with autoloading, without class params, without method params' => [
+            'with autoloading (public), without class params, without method params' => [
                 MethodRunRequestWithAutoloading::create(
                     MethodData::create(
                         'constant',
@@ -109,12 +111,42 @@ class MethodRunnerTest extends TestCase
                     ),
                     [],
                     ClassData::create(
-                        '\\Foo\\FancyTestData\\PublicService\\ConstantService'
+                        \Foo\FancyTestData\PublicService\ConstantService::class,
                     ),
                     [],
                     __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
                 ),
                 MethodResult::create(999),
+            ],
+            'with autoloading (protected)' => [
+                MethodRunRequestWithAutoloading::create(
+                    MethodData::create(
+                        'multiply',
+                        ''
+                    ),
+                    [100, 250],
+                    ClassData::create(
+                        \Foo\FancyTestData\ProtectedService\MultiplierService::class,
+                    ),
+                    [10],
+                    __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
+                ),
+                MethodResult::create(250000),
+            ],
+            'with autoloading (private)' => [
+                MethodRunRequestWithAutoloading::create(
+                    MethodData::create(
+                        'multiply',
+                        ''
+                    ),
+                    [100, 250],
+                    ClassData::create(
+                        \Foo\FancyTestData\PrivateService\MultiplierService::class,
+                    ),
+                    [10],
+                    __DIR__ . '/../testdata/fancy_testdata_project/vendor/autoload.php'
+                ),
+                MethodResult::create(250000),
             ],
         ];
     }
