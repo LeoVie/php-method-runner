@@ -6,7 +6,11 @@ require_once '#BOOTSTRAP_SCRIPT#';
 
 $class = new #CLASS_NAME#(...unserialize('#CLASS_PARAMS#'));
 
-print(serialize((new Invader($class))->#FUNCTION_NAME#(...unserialize('#FUNCTION_PARAMS#'))));
+ob_start();
+$result = serialize((new Invader($class))->#FUNCTION_NAME#(...unserialize('#FUNCTION_PARAMS#')));
+ob_end_clean();
+
+print($result);
 
 /**
  * Following code is copied from spatie/invade
@@ -31,35 +35,35 @@ class Invader
      * @param T $obj
      */
     public function __construct(object $obj)
-{
-    $this->obj = $obj;
-    $this->reflected = new \ReflectionClass($obj);
-}
+    {
+        $this->obj = $obj;
+        $this->reflected = new \ReflectionClass($obj);
+    }
 
     public function __get(string $name): mixed
-{
-    $property = $this->reflected->getProperty($name);
+    {
+        $property = $this->reflected->getProperty($name);
 
-    $property->setAccessible(true);
+        $property->setAccessible(true);
 
-    return $property->getValue($this->obj);
-}
+        return $property->getValue($this->obj);
+    }
 
     public function __set(string $name, mixed $value): void
-{
-    $property = $this->reflected->getProperty($name);
+    {
+        $property = $this->reflected->getProperty($name);
 
-    $property->setAccessible(true);
+        $property->setAccessible(true);
 
-    $property->setValue($this->obj, $value);
-}
+        $property->setValue($this->obj, $value);
+    }
 
     public function __call(string $name, array $params = []): mixed
-{
-    $method = $this->reflected->getMethod($name);
+    {
+        $method = $this->reflected->getMethod($name);
 
-    $method->setAccessible(true);
+        $method->setAccessible(true);
 
-    return $method->invoke($this->obj, ...$params);
-}
+        return $method->invoke($this->obj, ...$params);
+    }
 }

@@ -10,4 +10,8 @@ class Context
 static #FUNCTION_CONTENT#
 }
 
-print(serialize(Context::$functionName(...unserialize($params))));
+ob_start();
+$result = serialize(Context::$functionName(...unserialize($params)));
+ob_end_clean();
+
+print($result);
