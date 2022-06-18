@@ -27,6 +27,11 @@
       "ignore": [
         "LeoVie\\PhpMethodRunner\\Configuration\\Configuration::create"
       ]
+    },
+    "InstanceOf_": {
+      "ignore": [
+        "LeoVie\\PhpMethodRunner\\Generator\\PhpFileGenerator::methodFile"
+      ]
     }
   },
   "tmpDir": "../cache"

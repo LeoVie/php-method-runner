@@ -7,7 +7,10 @@ namespace LeoVie\PhpMethodRunner\Model;
 /** @psalm-immutable */
 class MethodRunRequestWithAutoloading implements MethodRunRequest
 {
-    /** @param mixed[] $methodParams */
+    /**
+     * @param mixed[] $methodParams
+     * @param mixed[] $classParams
+     */
     private function __construct(
         private MethodData $methodData,
         private array      $methodParams,
