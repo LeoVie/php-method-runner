@@ -13,7 +13,6 @@ class PhpFileRunner
     /**
      * @throws FilesystemException
      * @throws CommandFailed
-     * @throws StringsException
      */
     public function runPhpFile(string $filepath): string
     {

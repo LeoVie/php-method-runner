@@ -6,9 +6,9 @@ namespace LeoVie\PhpMethodRunner\Tests\Unit\Run;
 
 use LeoVie\PhpMethodRunner\Configuration\Configuration;
 use LeoVie\PhpMethodRunner\Generator\PhpFileGenerator;
-use LeoVie\PhpMethodRunner\Model\Method;
+use LeoVie\PhpMethodRunner\Model\MethodData;
 use LeoVie\PhpMethodRunner\Model\MethodResult;
-use LeoVie\PhpMethodRunner\Model\MethodRunRequest;
+use LeoVie\PhpMethodRunner\Model\MethodRunRequestWithoutAutoloading;
 use LeoVie\PhpMethodRunner\Run\MethodRunner;
 use LeoVie\PhpMethodRunner\Run\PhpFileRunner;
 use PHPUnit\Framework\TestCase;
@@ -27,7 +27,7 @@ class MethodRunnerTest extends TestCase
         self::assertEquals(
             $expected,
             (new MethodRunner($phpFileGenerator, $phpFileRunner, new Configuration('', '')))->run(
-                MethodRunRequest::create(Method::create('', ''), []),
+                MethodRunRequestWithoutAutoloading::create(MethodData::create('', ''), []),
             ));
     }
 
